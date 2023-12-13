@@ -17,9 +17,9 @@ Pre-trained weights are also attached if you don't want to train the model.
 2. Running the FastAPI Application
 To run the FastAPI application and store input data in MySQL, follow these steps:
 
-Start MySQL and create the necessary schema.
-Set the database URL in the main.py script.
-Run the FastAPI application:
+      1. Start MySQL and create the necessary schema.
+      2. Set the database URL in the main.py script.
+      3. Run the FastAPI application:
 ```bash
 
 python main.py
