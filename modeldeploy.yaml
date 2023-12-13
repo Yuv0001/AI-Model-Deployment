@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: classifiermodel-deployment
+  labels:
+    app: classifiermodel
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: classifiermodel
+  template:
+    metadata:
+      labels:
+        app: classifiermodel
+    spec:
+      containers:
+      - name: classifiermodel-container
+        image: modeltesting
+        ports:
+        - containerPort: 8000
