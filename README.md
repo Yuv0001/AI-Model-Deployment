@@ -55,4 +55,6 @@ Run the following command to deploy the Docker container:
 
 kubectl apply -f modeldeploy.yaml
 ```
+# NOTE 
 
+YOU CAN DOWNLOAD THE DATASET FROM THE FOLLOWING LINK:- https://www.kaggle.com/datasets/tongpython/cat-and-dog/download?datasetVersionNumber=1
