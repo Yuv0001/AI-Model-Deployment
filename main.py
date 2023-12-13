@@ -12,8 +12,8 @@ from io import BytesIO
 
 app = FastAPI()
 
-
-DATABASE_URL = "mysql+pymysql://root:Yuv123@localhost:3306/classifiermodel"
+#Create your database in MYSQL 
+DATABASE_URL = "Your-Data-Base-URl"    #Attach your MySQL database connection url
 engine = create_engine(DATABASE_URL)
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 Base = declarative_base()
@@ -36,10 +36,11 @@ def get_db():
     finally:
         db.close()
 
-
-
 db_dependency = Annotated[Session,Depends(get_db)]
 
+
+
+#Create your Fast-API
 @app.post("/predict")
 async def predict(file:UploadFile=File(...), db:db_dependency= Annotated[Session,Depends(get_db)]):
     try:
@@ -53,8 +54,6 @@ async def predict(file:UploadFile=File(...), db:db_dependency= Annotated[Session
         threshold = 0.5
         prediction = model.predict(np.expand_dims(img_array, axis=0))[0][0]
         prediction_label = 'DOG' if prediction > threshold else 'CAT'
-        
-        # print(prediction)
 
         
         log_entry = PredictionLog(input_data=f"Uploaded image: {file.filename}", prediction=prediction_label)
