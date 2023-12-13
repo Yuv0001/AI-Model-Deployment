@@ -1,4 +1,3 @@
-# Import necessary libraries
 import os
 import numpy as np
 import tensorflow as tf
@@ -7,15 +6,11 @@ from tensorflow.keras.models import Sequential
 from tensorflow.keras.layers import Conv2D, MaxPooling2D, Flatten, Dense
 
 
-if tf.test.gpu_device_name():
-    print('GPU is available')
-else:
-    print("GPU is not available. Make sure you have a compatible GPU and the necessary drivers installed.")
     
 # Set the path to your dataset
-dataset_path = r"C:\Users\Yuvraj\Downloads\catanddog\training_set\training_set"
+dataset_path = 'Datasetpath'
 
-# Define parameters
+
 input_shape = (150, 150, 3)
 batch_size = 32
 epochs = 10
@@ -34,7 +29,7 @@ train_generator = train_datagen.flow_from_directory(
     target_size=(input_shape[0], input_shape[1]),
     batch_size=batch_size,
     class_mode='binary',  # 'binary' because there are two classes: dog and cat
-    subset='training'  # Specify this is the training set
+    subset='training'  
 )
 
 validation_generator = train_datagen.flow_from_directory(
@@ -42,7 +37,7 @@ validation_generator = train_datagen.flow_from_directory(
     target_size=(input_shape[0], input_shape[1]),
     batch_size=batch_size,
     class_mode='binary',
-    subset='validation'  # Specify this is the validation set
+    subset='validation'  
 )
 
 # Build the model
