@@ -1,6 +1,6 @@
 FROM python:3.10
 
-WORKDIR  /AI Deployment
+WORKDIR  /AI-Role-assignment
 
 COPY . .
 
